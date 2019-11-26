@@ -640,7 +640,7 @@ class Monitor(object):
         try:
             translation = subprocess.check_output(cmd, cwd=".")
             if b"?? ??:0" not in translation:
-                self._print(translation.decode(), console_printer=yellow_print)
+                self._print(translation.decode().rstrip(), console_printer=yellow_print)
         except OSError as e:
             red_print("%s: %s" % (" ".join(cmd), e))
 
