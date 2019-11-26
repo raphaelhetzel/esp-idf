@@ -87,7 +87,8 @@ ANSI_NORMAL = '\033[0m'
 
 def color_print(message, color):
     """ Print a message to stderr with colored highlighting """
-    sys.stderr.write("%s%s%s\n" % (color, message,  ANSI_NORMAL))
+    for line in message.split("\n"):
+        sys.stderr.write("%s%s%s\n" % (color, line,  ANSI_NORMAL))
 
 
 def yellow_print(message):
